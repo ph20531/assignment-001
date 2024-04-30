@@ -1,5 +1,0 @@
-SmartFarm
-https://www.kaggle.com/datasets/wisam1985/iot-agriculture-2024
-
-SmokersHealth
-https://www.kaggle.com/datasets/jaceprater/smokers-health-data/data
