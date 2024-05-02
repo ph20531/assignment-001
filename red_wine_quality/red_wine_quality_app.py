@@ -5,6 +5,7 @@ import matplotlib.pyplot as plt
 import matplotlib.colors as mcolors
 import seaborn as sns
 from PIL import Image
+import pickle
 from keras.models import load_model
 
 # TODO: streamlit 기본 폰트로 차트, EC2 한글 적용하기.
@@ -80,6 +81,8 @@ def data_analysis():
             temp.append({'컬럼': column, '데이터 타입': red_wine[column].dtype})
         temp = pd.DataFrame(temp)
         st.write(temp)
+        
+    st.divider()
     
     st.header('컬럼별 조회')
     selected_columns = st.multiselect("조회할 컬럼을 선택하세요.", red_wine.columns)
@@ -108,6 +111,8 @@ def data_analysis():
     else:
         st.write('선택된 컬럼이 없습니다.')
         
+    st.divider()
+    
     st.header('상관관계 분석')
     numerical_columns = red_wine.select_dtypes(include=['float64', 'int64']).columns.tolist()
     selected_columns = st.multiselect("상관관계를 분석할 컬럼을 선택하세요.", numerical_columns)
@@ -160,15 +165,91 @@ def machine_learning():
     st.header('설정')
     values = []
     for col in red_wine.columns[:11]:
+        # iloc | input 디폴트
+        # 459 | 3 | 하
+        # 0 | 5 | 중
+        # 1549 | 8 | 상
         value = st.number_input(f'{col}', value=red_wine[col].iloc[0])
         values.append(value)
         
     inputs = np.array(values)
+    inputs = inputs.reshape(-1, red_wine.columns.size - 1)
+    
+    with open(r'red_wine_quality\red_wine_quality_standard_scaler.pkl', 'rb') as f:
+        scaler = pickle.load(f)
+        
+    inputs = scaler.transform(inputs)
     
     if st.button('예측'):
-        # TODO: inputs > h5 model > predict | 개발중이라서 에러생김
-        model = load_model('red_wine_quality\red_wine_quality_model.h5')
-        model.predict(inputs)
+        st.divider()
+        model = load_model(r'red_wine_quality\red_wine_quality_model.h5')
+        predict = model.predict(inputs)[0][0] * 10
+        
+        if(predict < 0 or predict > 10):
+            st.error('잘못된 값이 입력되었습니다.')
+            return
+        
+        st.header('품질')
+        st.write(f'해당 레드 와인의 품질은 전체 10점 중에서 {predict:.2f}점입니다.')
+        
+        if predict >= 0 and predict <= 3.33:
+            st.markdown('<div style="background-color: #C98444; padding: 16px; border-radius: 8px; margin-bottom: 16px; color: #000000; font-size: 16px;">🥉 등급 : 하</div>', unsafe_allow_html=True)
+        elif predict > 3.33 and predict <= 6.67:
+            st.markdown('<div style="background-color: #CECECE; padding: 16px; border-radius: 8px; margin-bottom: 16px; color: #000000; font-size: 16px;">🥈 등급 : 중</div>', unsafe_allow_html=True)
+        elif predict > 6.67 and predict <= 10:
+            st.markdown('<div style="background-color: #E1B643; padding: 16px; border-radius: 8px; margin-bottom: 16px; color: #000000; font-size: 16px;">🥇 등급 : 상</div>', unsafe_allow_html=True)
+        
+        st.divider()
+        
+        st.header('비슷한 품질의 제품들')
+        
+        file_names = ['Red', 'Rose', 'Sparkling', 'White']
+        subheaders = ['레드 와인', '로제 와인', '스파클링 와인', '화이트 와인']
+        minus_alpha, plus_alpha, multiply_alpha = -0.5, 0.5, 2
+        label_colors = ['#ce293d', '#f67483', '#cbffea', '#ffffff']
+        max_count = 6
+        for i in range(len(file_names)):
+            similar_products = pd.read_csv(f'red_wine_quality/wine/{file_names[i]}.csv')
+            similar_products.rename(columns={'Rating': 'Quality'}, inplace=True)
+            similar_products = similar_products[(similar_products['Quality'] * multiply_alpha >= predict + minus_alpha) & (similar_products['Quality'] * multiply_alpha <= predict + plus_alpha)]
+            similar_products['Quality'] = similar_products['Quality'] * multiply_alpha
+            similar_products.reset_index(drop=True, inplace=True)
+            count = similar_products.shape[0]
+            
+            if(count > max_count):
+                count = max_count
+            
+            if(count > 0):
+                st.write("")
+                st.write("")
+                st.write("")
+                st.subheader(subheaders[i])
+                
+                for j in range(count):
+                    name = similar_products.loc[j, 'Name']
+                    country = similar_products.loc[j, 'Country']
+                    region = similar_products.loc[j, 'Region']
+                    winery = similar_products.loc[j, 'Winery']
+                    quality = similar_products.loc[j, 'Quality']
+                    number_of_ratings = similar_products.loc[j, 'NumberOfRatings']
+                    price = similar_products.loc[j, 'Price']
+                    year = similar_products.loc[j, 'Year']
+                    
+                    st.markdown(f'''
+                    <div style="background-color: #262730; padding: 16px 24px; border-radius: 0px 8px 8px 0px; margin-bottom: 16px; color: #FFF; font-size: 16px; position: relative;">
+                        <div style="position: absolute; left: -6px; top: 0; bottom: 0; width: 6px; border-radius: 8px 0px 0px 8px; background-color: {label_colors[i]};"></div>
+                        <b>이름</b> | {name}<br/>
+                        <b>국가</b> | {country}<br/>
+                        <b>지역</b> | {region}<br/>
+                        <b>와이너리</b> | {winery}<br/>
+                        <b>품질</b> | {quality}<br/>
+                        <b>평점 개수</b> | {number_of_ratings}<br/>
+                        <b>가격</b> | {price}€<br/>
+                        <b>년도</b> | {year}
+                    </div>
+                    ''', unsafe_allow_html=True)
+
+
 
 def index():
     data_processing()
