@@ -78,7 +78,7 @@ def data_analysis():
     elif selected_option == '데이터 타입':
         temp = []
         for column in red_wine.columns:
-            temp.append({'컬럼': column, '데이터 타입': red_wine[column].dtype})
+            temp.append({'column': column, 'dtype': red_wine[column].dtype})
         temp = pd.DataFrame(temp)
         st.write(temp)
         
