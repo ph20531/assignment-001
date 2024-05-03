@@ -169,7 +169,7 @@ def artificial_intelligence():
         # 459 | 3 | 하
         # 0 | 5 | 중
         # 1549 | 8 | 상
-        value = st.number_input(f'{col}', value=red_wine[col].iloc[0])
+        value = st.number_input(f'{col}', value=red_wine[col].iloc[0], min_value=red_wine[col].min(), max_value=red_wine[col].max())
         values.append(value)
         
     inputs = np.array(values)
