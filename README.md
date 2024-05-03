@@ -38,4 +38,4 @@
 003. AWS EC2서버에 웹 대시보드 배포
 
 ### 데이터셋
-001. <a href=https://www.kaggle.com/datasets/msambare/fer2013>얼굴 표정 이미지 데이터셋</a>
+- <a href=https://www.kaggle.com/datasets/msambare/fer2013>얼굴 표정 이미지 데이터셋</a>
