@@ -15,8 +15,8 @@
 003. AWS EC2서버에 웹 대시보드 배포
 
 ### 데이터셋
-#### <a href=https://www.kaggle.com/datasets/uciml/red-wine-quality-cortez-et-al-2009>001. 레드 와인 품질 데이터셋</a>
-#### <a href=https://www.kaggle.com/datasets/budnyak/wine-rating-and-price>002. 품질 관련 와인 제품 데이터셋</a>
+<a href=https://www.kaggle.com/datasets/uciml/red-wine-quality-cortez-et-al-2009>001. 레드 와인 품질 데이터셋</a>
+<a href=https://www.kaggle.com/datasets/budnyak/wine-rating-and-price>002. 품질 관련 와인 제품 데이터셋</a>
 
 <br/>
 <br/>
@@ -30,4 +30,4 @@
 - Teachable Machine Image Classification
 
 ### 데이터셋
-#### <a href=https://www.kaggle.com/datasets/msambare/fer2013>001. 얼굴 표정 이미지 데이터셋</a>
+<a href=https://www.kaggle.com/datasets/msambare/fer2013>001. 얼굴 표정 이미지 데이터셋</a>
