@@ -19,12 +19,16 @@
 <a href=https://www.kaggle.com/datasets/budnyak/wine-rating-and-price>002. 품질 관련 와인 제품 데이터셋</a>
 
 <br/>
-<br/>
 
 ## 프로젝트 002. 얼굴 표정을 통한 감정 예측
 
 ### 소개
 작업 중
+
+### 작업 과정
+001. 작업 중<br/>
+002. 작업 중<br/>
+003. AWS EC2서버에 웹 대시보드 배포
 
 ### 핵심 기술
 - Teachable Machine Image Classification
