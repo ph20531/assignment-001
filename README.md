@@ -15,8 +15,8 @@
 003. AWS EC2서버에 웹 대시보드 배포
 
 ### 데이터셋
-<a href=https://www.kaggle.com/datasets/uciml/red-wine-quality-cortez-et-al-2009>1. 레드 와인 품질 데이터셋</a><br/>
-<a href=https://www.kaggle.com/datasets/budnyak/wine-rating-and-price>2. 품질 관련 와인 제품 데이터셋</a>
+001. <a href=https://www.kaggle.com/datasets/uciml/red-wine-quality-cortez-et-al-2009>레드 와인 품질 데이터셋</a><br/>
+002. <a href=https://www.kaggle.com/datasets/budnyak/wine-rating-and-price>품질 관련 와인 제품 데이터셋</a>
 
 ## 프로젝트 002. 얼굴 표정을 통한 감정 예측
 
@@ -32,4 +32,4 @@
 003. AWS EC2서버에 웹 대시보드 배포
 
 ### 데이터셋
-<a href=https://www.kaggle.com/datasets/msambare/fer2013>1. 얼굴 표정 이미지 데이터셋</a>
+001. <a href=https://www.kaggle.com/datasets/msambare/fer2013>얼굴 표정 이미지 데이터셋</a>
