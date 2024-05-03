@@ -1,6 +1,9 @@
 # 과제 001
 
-## 프로젝트 001. 레드 와인 품질 예측
+## 프로젝트 001
+
+### 아이디어
+레드 와인 품질 예측
 
 ### 소개
 해당 프로젝트는 레드 와인의 성분 값들을 입력받아서 품질을 예측하고<br/>
@@ -18,7 +21,10 @@
 001. <a href=https://www.kaggle.com/datasets/uciml/red-wine-quality-cortez-et-al-2009>레드 와인 품질 데이터셋</a><br/>
 002. <a href=https://www.kaggle.com/datasets/budnyak/wine-rating-and-price>품질 관련 와인 제품 데이터셋</a>
 
-## 프로젝트 002. 얼굴 표정을 통한 감정 예측
+## 프로젝트 002
+
+### 아이디어
+얼굴 표정을 통한 감정 예측
 
 ### 소개
 작업 중
