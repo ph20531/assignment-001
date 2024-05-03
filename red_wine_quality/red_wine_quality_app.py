@@ -159,8 +159,8 @@ def data_analysis():
     else:
         st.write('선택된 컬럼이 없습니다.')
 
-def machine_learning():
-    st.title('머신러닝')
+def artificial_intelligence():
+    st.title('인공지능')
     
     st.header('설정')
     values = []
@@ -255,14 +255,14 @@ def index():
     data_processing()
     
     st.sidebar.title('레드 와인')
-    menu = st.sidebar.selectbox("대시보드", ["홈", "데이터 분석", "머신러닝"])
+    menu = st.sidebar.selectbox("대시보드", ["홈", "데이터 분석", "인공지능"])
     
     if menu == "홈":
         home()
     elif menu == "데이터 분석":
         data_analysis()
-    elif menu == "머신러닝":
-        machine_learning()
+    elif menu == "인공지능":
+        artificial_intelligence()
     
 if __name__ == '__main__':
     index()
