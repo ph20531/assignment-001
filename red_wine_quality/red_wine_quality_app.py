@@ -10,7 +10,7 @@ from keras.models import load_model
 import os
 
 # TODO: streamlit 기본 폰트로 차트, EC2 한글 적용하기.
- 
+
 root_dir = os.path.dirname(os.path.abspath(__file__))
 
 def data_processing():
