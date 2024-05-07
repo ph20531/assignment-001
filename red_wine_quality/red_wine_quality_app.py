@@ -7,12 +7,15 @@ import seaborn as sns
 from PIL import Image
 import pickle
 from keras.models import load_model
+import os
 
 # TODO: streamlit 기본 폰트로 차트, EC2 한글 적용하기.
 
+root_dir = os.path.dirname(os.path.abspath(__file__))
+
 def data_processing():
     global red_wine
-    red_wine = pd.read_csv(r'red_wine_quality/red_wine_quality_data.csv')
+    red_wine = pd.read_csv(os.path.join(root_dir, 'red_wine_quality_data.csv'))
     red_wine.reset_index(drop = True, inplace=True)
     
     red_wine.rename(columns={'pH': 'ph'}, inplace=True)
@@ -29,7 +32,7 @@ def data_processing():
 def home():
     st.title('홈')
     
-    img = Image.open(r'red_wine_quality/red_wine.jpg')
+    img = Image.open(os.path.join(root_dir, 'red_wine.jpg'))
     st.image(img, use_column_width=True)
     
     st.header('대시보드')
@@ -176,14 +179,14 @@ def artificial_intelligence():
     inputs = np.array(values)
     inputs = inputs.reshape(-1, red_wine.columns.size - 1)
     
-    with open(r'red_wine_quality/red_wine_quality_standard_scaler.pkl', 'rb') as f:
+    with open(os.path.join(root_dir, 'red_wine_quality_standard_scaler.pkl'), 'rb') as f:
         scaler = pickle.load(f)
         
     inputs = scaler.transform(inputs)
     
     if st.button('예측'):
         st.divider()
-        model = load_model(r'red_wine_quality/red_wine_quality_model.h5')
+        model = load_model(os.path.join(root_dir, 'red_wine_quality_model.h5'))
         predict = model.predict(inputs)[0][0] * 10
         
         if(predict < 0 or predict > 10):
@@ -210,7 +213,7 @@ def artificial_intelligence():
         label_colors = ['#ce293d', '#f67483', '#cbffea', '#ffffff']
         max_count = 6
         for i in range(len(file_names)):
-            similar_products = pd.read_csv(f'red_wine_quality/wine/{file_names[i]}.csv')
+            similar_products = pd.read_csv(os.path.join(root_dir, 'wine', f'{file_names[i]}.csv'))
             similar_products.rename(columns={'Rating': 'Quality'}, inplace=True)
             similar_products = similar_products[(similar_products['Quality'] * multiply_alpha >= predict + minus_alpha) & (similar_products['Quality'] * multiply_alpha <= predict + plus_alpha)]
             similar_products['Quality'] = similar_products['Quality'] * multiply_alpha
