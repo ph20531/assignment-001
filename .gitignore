@@ -1,0 +1,6 @@
+# Ignore .streamlit folder
+.streamlit/
+
+# Ignore all hidden files
+.*
+!.gitignore
