@@ -12,7 +12,7 @@ from keras.models import load_model
 
 def data_processing():
     global red_wine
-    red_wine = pd.read_csv(r'red_wine_quality\red_wine_quality_data.csv')
+    red_wine = pd.read_csv(r'red_wine_quality/red_wine_quality_data.csv')
     red_wine.reset_index(drop = True, inplace=True)
     
     red_wine.rename(columns={'pH': 'ph'}, inplace=True)
@@ -29,7 +29,7 @@ def data_processing():
 def home():
     st.title('홈')
     
-    img = Image.open(r'red_wine_quality\red_wine.jpg')
+    img = Image.open(r'red_wine_quality/red_wine.jpg')
     st.image(img, use_column_width=True)
     
     st.header('대시보드')
@@ -176,14 +176,14 @@ def artificial_intelligence():
     inputs = np.array(values)
     inputs = inputs.reshape(-1, red_wine.columns.size - 1)
     
-    with open(r'red_wine_quality\red_wine_quality_standard_scaler.pkl', 'rb') as f:
+    with open(r'red_wine_quality/red_wine_quality_standard_scaler.pkl', 'rb') as f:
         scaler = pickle.load(f)
         
     inputs = scaler.transform(inputs)
     
     if st.button('예측'):
         st.divider()
-        model = load_model(r'red_wine_quality\red_wine_quality_model.h5')
+        model = load_model(r'red_wine_quality/red_wine_quality_model.h5')
         predict = model.predict(inputs)[0][0] * 10
         
         if(predict < 0 or predict > 10):
