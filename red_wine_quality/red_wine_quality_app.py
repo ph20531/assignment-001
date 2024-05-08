@@ -150,15 +150,15 @@ def data_analysis():
         plt.xticks(fontsize=text_size)
         plt.yticks(fontsize=text_size)
         
-        # sns.heatmap(correlation_matrix, annot=True, annot_kws={"fontsize": text_size}, cmap=cmap, fmt=".2f", ax=ax)
-        
-        # 히트맵 그리기
         ax = sns.heatmap(correlation_matrix, annot=False, cmap=cmap)
 
-        # 각 셀에 숫자 값 추가
         for i in range(len(selected_columns)):
             for j in range(len(selected_columns)):
-                ax.text(j + 0.5, i + 0.5, f'{correlation_matrix.iloc[i, j]:.2f}', ha='center', va='center', fontsize=text_size)
+                cell_color = ax.collections[0].get_facecolor()[i * len(selected_columns) + j][:3]
+                cell_brightness = np.dot(cell_color, [0.299, 0.587, 0.114])
+                font_color = 'black' if cell_brightness > 0.5 else 'white'
+                
+                ax.text(j + 0.5, i + 0.5, f'{correlation_matrix.iloc[i, j]:.2f}', ha='center', va='center', fontsize=text_size, color=font_color)
         
         cbar = ax.collections[0].colorbar
         cbar.ax.tick_params(labelsize=text_size)
