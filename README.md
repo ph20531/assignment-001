@@ -50,6 +50,20 @@ AWS EC2 프리티어 서버 성능의 문제로 인해 단일 이미지 파일�
 
 ## 가상 환경
 
+### 패키지 리스트
+001. OpenSSL
+002. NumPy
+003. SciPy
+004. Matplotlib
+005. IPython
+006. Scikit-learn
+007. Pandas
+008. Pillow
+009. Jupyter
+010. Seaborn
+011. Keras 2.12.0
+012. TensorFlow 2.12.0
+
 ### 명령어
 ```bash
 conda create -n venv python=3.10 openssl numpy scipy matplotlib ipython scikit-learn pandas pillow jupyter seaborn keras=2.12.0 tensorflow=2.12.0
@@ -58,4 +72,4 @@ conda create -n venv python=3.10 openssl numpy scipy matplotlib ipython scikit-l
 ### 빌드 타겟
 keras=2.12.0<br/>
 tensorflow=2.12.0<br/>
-참고로 해당 버전으로 설치되어있어야 문제없이 작동합니다.
+해당 버전으로 설치되어있어야 문제없이 작동합니다.
