@@ -51,7 +51,9 @@ AWS EC2 프리티어 서버 성능의 문제로 인해 단일 이미지 파일�
 ## 가상 환경
 
 ### 명령어
-###### conda create -n venv python=3.10 openssl numpy scipy matplotlib ipython scikit-learn pandas pillow jupyter seaborn keras=2.12.0 tensorflow=2.12.0
+```bash
+conda create -n venv python=3.10 openssl numpy scipy matplotlib ipython scikit-learn pandas pillow jupyter seaborn keras=2.12.0 tensorflow=2.12.0
+```
 
 ### 빌드 타겟
 keras=2.12.0<br/>
