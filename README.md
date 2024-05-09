@@ -47,3 +47,13 @@ AWS EC2 프리티어 서버 성능의 문제로 인해 단일 이미지 파일�
 ### 데이터셋
 001. <a href=https://www.kaggle.com/datasets/alexandredj/rock-paper-scissors-dataset>가위 바위 보 데이터 셋 (실제)</a><br/>
 002. <a href=https://www.kaggle.com/datasets/sanikamal/rock-paper-scissors-dataset>가위 바위 보 데이터 셋 (가상 증강)</a>
+
+## 가상 환경
+
+### 명령어
+conda create -n venv python=3.10 openssl numpy scipy matplotlib ipython scikit-learn pandas pillow jupyter seaborn keras=2.12.0 tensorflow=2.12.0
+
+### 빌드 타겟
+keras=2.12.0
+tensorflow=2.12.0
+해당 버전으로 설치되어있어야 문제없이 작동합니다.
