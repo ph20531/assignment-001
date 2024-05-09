@@ -14,12 +14,12 @@
 
 ### 작업 과정
 001. colab에서 인공지능 개발 후 scaler.pkl, model.h5파일을 저장하고 다운로드<br/>
-002. 로컬에서 데이터셋과 scaler.pkl, model.h5파일들을 임포트한 후 streamlit 웹 대쉬보드 개발<br/>
+002. 로컬에서 데이터 셋과 scaler.pkl, model.h5파일들을 임포트한 후 streamlit 웹 대쉬보드 개발<br/>
 003. AWS EC2서버에 웹 대시보드 배포
 
-### 데이터셋
-001. <a href=https://www.kaggle.com/datasets/uciml/red-wine-quality-cortez-et-al-2009>레드 와인 품질 데이터셋</a><br/>
-002. <a href=https://www.kaggle.com/datasets/budnyak/wine-rating-and-price>품질 관련 와인 제품 데이터셋</a>
+### 데이터 셋
+001. <a href=https://www.kaggle.com/datasets/uciml/red-wine-quality-cortez-et-al-2009>레드 와인 품질 데이터 셋</a><br/>
+002. <a href=https://www.kaggle.com/datasets/budnyak/wine-rating-and-price>품질 관련 와인 제품 데이터 셋</a>
 
 ## 프로젝트 002
 
@@ -44,7 +44,7 @@ AWS EC2 프리티어 서버 성능의 문제로 인해 단일 이미지 파일�
 002. 로컬에서 model.h5파일을 임포트한 후 streamlit 웹 대시보드 개발<br/>
 003. AWS EC2서버에 웹 대시보드 배포
 
-### 데이터셋
+### 데이터 셋
 001. <a href=https://www.kaggle.com/datasets/alexandredj/rock-paper-scissors-dataset>가위 바위 보 데이터 셋 (실제)</a><br/>
 002. <a href=https://www.kaggle.com/datasets/sanikamal/rock-paper-scissors-dataset>가위 바위 보 데이터 셋 (가상 증강)</a>
 
