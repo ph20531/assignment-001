@@ -72,4 +72,5 @@ conda create -n venv python=3.10 openssl numpy scipy matplotlib ipython scikit-l
 ### 빌드 타겟
 keras=2.12.0<br/>
 tensorflow=2.12.0<br/>
-해당 버전으로 설치되어있어야 문제없이 작동합니다.
+
+#### 참고로 keras와 tensorflow 패키지는 2.12.0버전으로 설치해주셔야 프로젝트가 문제없이 작동합니다.
