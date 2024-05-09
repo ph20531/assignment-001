@@ -66,6 +66,11 @@ def home():
             st.write(content)
         if index != len(data) - 1:
             st.divider()
+    
+    st.divider()        
+    st.subheader('데이터 셋')
+    st.markdown('''<a href="https://www.kaggle.com/datasets/uciml/red-wine-quality-cortez-et-al-2009" style="color:#ffffff;">001. 레드 와인 품질 데이터셋</a><br>
+                    <a href="https://www.kaggle.com/datasets/budnyak/wine-rating-and-price" style="color:#ffffff;">002. 품질 관련 와인 제품 데이터셋</a>''', unsafe_allow_html=True)
 
 def data_analysis():
     st.title('데이터 분석')

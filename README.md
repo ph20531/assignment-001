@@ -24,7 +24,7 @@
 ## 프로젝트 002
 
 ### 아이디어
-얼굴 표정 이미지를 활용한 감정 예측
+이미지 분류 인공지능(Teachable Machine)을 활용한 가위 바위 보 게임
 
 ### 소개
 작업 중
@@ -33,9 +33,10 @@
 - Teachable Machine Image Classification
 
 ### 작업 과정
-001. 작업 중<br/>
-002. 작업 중<br/>
+001. Teachable Machine으로 인공지능 개발 후 model.h5파일을 다운로드<br/>
+002. 로컬에서 model.h5파일을 임포트한 후 streamlit 웹 대시보드 개발<br/>
 003. AWS EC2서버에 웹 대시보드 배포
 
 ### 데이터셋
-001. <a href=https://www.kaggle.com/datasets/msambare/fer2013>얼굴 표정 이미지 데이터셋</a>
+001. <a href=https://www.kaggle.com/datasets/alexandredj/rock-paper-scissors-dataset>가위 바위 보 데이터 셋 (실제)</a><br/>
+002. <a href=https://www.kaggle.com/datasets/sanikamal/rock-paper-scissors-dataset>가위 바위 보 데이터 셋 (가상 증강)</a>
